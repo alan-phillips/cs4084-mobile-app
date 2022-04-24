@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-public class home extends AppCompatActivity {
+public class Home extends AppCompatActivity {
     String stationList[] = {"Circle K", "Topaz", "Applegreen", "Maxol"};
     ListView listView;
 
@@ -52,7 +52,7 @@ public class home extends AppCompatActivity {
 
             case R.id.logout:
                 Toast.makeText(this, "Trying to Log Out", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(home.this, MainActivity.class));
+                startActivity(new Intent(Home.this, MainActivity.class));
                 finish();
                 return true;
 
