@@ -1,4 +1,4 @@
-package com.example.myloginapp;
+package com.example.fueltracker;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,18 +13,18 @@ import org.w3c.dom.Text;
 public class CustomBaseAdapter extends BaseAdapter {
 
     Context context;
-    String listFruit[];
+    String stationList[];
     LayoutInflater inflater;
 
-    public CustomBaseAdapter(Context ctx, String[] fruitList){
+    public CustomBaseAdapter(Context ctx, String[] stationList){
         this.context = ctx;
-        this.listFruit = fruitList;
+        this.stationList = stationList;
         inflater = LayoutInflater.from(ctx);
     }
 
     @Override
     public int getCount() {
-        return listFruit.length;
+        return stationList.length;
     }
 
     @Override
@@ -41,7 +41,7 @@ public class CustomBaseAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         convertView = inflater.inflate(R.layout.activity_custom_list_view, null);
         TextView txtView = (TextView) convertView.findViewById(R.id.nameId);
-        txtView.setText(listFruit[position]);
+        txtView.setText(stationList[position]);
         return convertView;
     }
 }

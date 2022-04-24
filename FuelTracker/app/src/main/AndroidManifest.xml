@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FuelTracker">
         <activity
-            android:name=".RegisterActivity"
+            android:name=".home"
             android:exported="false" />
         <activity
             android:name=".CustomListView"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,4 @@
-package com.example.myloginapp;
+package com.example.fueltracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

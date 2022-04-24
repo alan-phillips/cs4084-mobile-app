@@ -1,10 +1,11 @@
-package com.example.myloginapp;
+package com.example.fueltracker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,28 +18,27 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
-public class Home extends AppCompatActivity {
-    String fruitList[] = {"Circle K", "Topaz", "Applegreen", "Maxol"};
-
+public class home extends AppCompatActivity {
+    String stationList[] = {"Circle K", "Topaz", "Applegreen", "Maxol"};
     ListView listView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+        setContentView(R.layout.activity_home);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         listView = (ListView) findViewById(R.id.ListView);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), fruitList);
+        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), stationList);
         listView.setAdapter(customBaseAdapter);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.home_menu_bar, menu);
+        inflater.inflate(R.menu.homemenubar, menu);
 
         return true;
     }
@@ -52,6 +52,8 @@ public class Home extends AppCompatActivity {
 
             case R.id.logout:
                 Toast.makeText(this, "Trying to Log Out", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(home.this, MainActivity.class));
+                finish();
                 return true;
 
             default:
