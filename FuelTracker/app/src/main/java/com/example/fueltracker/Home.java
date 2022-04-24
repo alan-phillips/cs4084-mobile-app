@@ -26,10 +26,6 @@ public class Home extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         listView = (ListView) findViewById(R.id.ListView);
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), stationList);
         listView.setAdapter(customBaseAdapter);

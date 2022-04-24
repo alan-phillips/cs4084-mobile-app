@@ -13,7 +13,7 @@
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity
-            android:name=".home"
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".CustomListView"
