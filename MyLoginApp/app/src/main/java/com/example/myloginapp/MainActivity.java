@@ -1,4 +1,4 @@
-package com.example.myloginapp;
+package ie.ul.googlemaps;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,25 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentbyId(R.id.map);
+        mapFragment.getMapAsync(onMapReadyCallback: this);
 
-        TextView username = findViewById(R.id.username);
-        TextView password = findViewById(R.id.password);
+    }
 
-        MaterialButton loginbtn = findViewById(R.id.loginbtn);
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        map = googleMap;
 
-        //admin and admin
-
-        loginbtn.setOnClickListener(v -> {
-            if (username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-                //correct
-                Toast.makeText(MainActivity.this, "Login Successful!!!", Toast.LENGTH_SHORT).show();
-            } else
-                //incorrect
-                Toast.makeText(MainActivity.this, "Login Failed!!!", Toast.LENGTH_SHORT).show();
-
-
-        });
-
-
+        LatLng Limerick = new LatLng(v: 52.663157, v1: -8.619842);
+        map.addMarker(new MarkerOptions().position(Limerick).title("Limerick"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(Limerick));
     }
 }
