@@ -61,19 +61,22 @@
         android:backgroundTint="@color/design_default_color_secondary_variant"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"/>
-    
+
     <TextView
+        android:id="@+id/forgotpassbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/forgotpassbtn"
-        android:text="Forgot my Password?"
-        android:textSize="17dp"
-
-
         android:layout_below="@+id/loginbtn"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
-        android:layout_margin="5dp" />
+
+
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="Forgot my Password?"
+        android:textColor="@color/white"
+        android:textSize="17dp" />
 
 
 

@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5315" />
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/drawable/backgroundtemp.xml" value="0.5315" />
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.5475" />
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.4185" />
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.5315" />
+        <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.22" />
         <entry key="..\:/Users/sean2/StudioProjects/cs4084-mobile-app/MyLoginApp/app/src/main/res/layout/activity_main.xml" value="0.1933876811594203" />
       </map>
     </option>
