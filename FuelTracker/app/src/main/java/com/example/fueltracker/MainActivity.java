@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button loginBtn;
     private TextView toRegister;
     private FirebaseAuth auth;
+    private TextView forgotPassNow;
 
 
     @Override
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         loginBtn = findViewById(R.id.loginbtn);
+        forgotPassNow = findViewById(R.id.forgotpassbtn);
         toRegister = findViewById(R.id.to_register);
 
         auth = FirebaseAuth.getInstance();
@@ -57,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
+        forgotPassNow.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, ForgotPassword.class));
+        });
         toRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
