@@ -47,6 +47,7 @@ public class Home extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.openmap:
                 Toast.makeText(this, "Trying to open Map", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Home.this, MapActivity.class));
                 return true;
 
             case R.id.logout:

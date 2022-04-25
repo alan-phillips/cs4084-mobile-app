@@ -16,7 +16,7 @@
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key"/>
         <activity
-            android:name=".MapActivity"
+            android:name=".MapActivity" />
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
