@@ -29,9 +29,6 @@
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".CustomListView"
-            android:exported="false" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity

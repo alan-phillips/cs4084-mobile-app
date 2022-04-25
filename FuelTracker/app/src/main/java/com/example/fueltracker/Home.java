@@ -7,10 +7,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,9 +20,15 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
-    String stationList[] = {"Circle K", "Topaz", "Applegreen", "Maxol"};
     ListView listView;
     FirebaseAuth auth;
 
@@ -30,10 +38,28 @@ public class Home extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        listView = (ListView) findViewById(R.id.ListView);
-        CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), stationList);
-        listView.setAdapter(customBaseAdapter);
+
+        final ArrayList<Station> stationList = new ArrayList<>();
+        listView = findViewById(R.id.ListView);
+        StationListAdapter adapter = new StationListAdapter(this, R.layout.activity_custom_list_view, stationList);
+        listView.setAdapter(adapter);
         auth = FirebaseAuth.getInstance();
+        DatabaseReference ref = FirebaseDatabase.getInstance("https://fuel-tracker-1b220-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("Stations");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                stationList.clear();
+                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    stationList.add(snapshot.getValue(Station.class));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         Adder = findViewById(R.id.Adder);
         Adder.setOnClickListener(new View.OnClickListener() {

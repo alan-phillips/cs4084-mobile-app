@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,44 +44,26 @@ public class AddStation extends AppCompatActivity {
         });
 
         saveStation.setOnClickListener(new View.OnClickListener() {
-            class Station {
-                String name;
-                double diesel;
-                double petrol;
 
-                public Station() {
-                }
-
-                public Station(String name, double diesel, double petrol) {
-                    this.name = name;
-                    this.diesel = diesel;
-                    this.petrol = petrol;
-
-                }
-
-                public String getName(){
-                    return name;
-                }
-
-                public double getDiesel(){
-                    return diesel;
-                }
-
-                public double getPetrol(){
-                    return petrol;
-                }
-            }
 
             @Override
             public void onClick(View view) {
                 String txt_name = name.getText().toString();
-                double num_diesel = Double.parseDouble(dieselPrice.getText().toString());
-                double num_petrol = Double.parseDouble(petrolPrice.getText().toString());
+                String txt_diesel = dieselPrice.getText().toString();
+                String txt_petrol = petrolPrice.getText().toString();
 
-                DatabaseReference stationsRef = ref.child("Stations");
-                stationsRef.push().setValue(new Station(txt_name, num_diesel, num_petrol));
+                if(TextUtils.isEmpty(txt_name) || TextUtils.isEmpty(txt_diesel) || TextUtils.isEmpty(txt_petrol)){
+                    Toast.makeText(AddStation.this, "Empty Input!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    double num_diesel = Double.parseDouble(txt_diesel);
+                    double num_petrol = Double.parseDouble(txt_petrol);
 
-                Toast.makeText(AddStation.this, "Added Station", Toast.LENGTH_SHORT).show();
+                    DatabaseReference stationsRef = ref.child("Stations");
+                    stationsRef.push().setValue(new Station(txt_name, num_diesel, num_petrol));
+
+                    Toast.makeText(AddStation.this, "Added Station", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

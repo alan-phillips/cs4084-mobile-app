@@ -49,8 +49,6 @@ public class RegisterActivity extends AppCompatActivity {
                 String txt_email = email.getText().toString();
                 String txt_password = password.getText().toString();
                 String txt_repeatPassword = repeatPassword.getText().toString();
-                Log.d("msg", txt_password + " " + txt_repeatPassword);
-
 
                 if(TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password) || TextUtils.isEmpty(txt_repeatPassword)){
                     Toast.makeText(RegisterActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
@@ -63,6 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else{
                     registerUser(txt_email, txt_password);
+                    startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                    finish();
                 }
             }
 
