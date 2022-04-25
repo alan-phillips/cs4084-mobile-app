@@ -72,6 +72,9 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.fueltracker" />
     </key>
+    <key name="android.template.-1581678625">
+      <recent name="com.example.fueltracker" />
+    </key>
   </component>
   <component name="RunManager" selected="Android App.cs4084-mobile-app.FuelTracker.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">

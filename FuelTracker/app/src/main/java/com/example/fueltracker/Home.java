@@ -24,6 +24,8 @@ public class Home extends AppCompatActivity {
     ListView listView;
     FirebaseAuth auth;
 
+    private Button Adder;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,16 @@ public class Home extends AppCompatActivity {
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), stationList);
         listView.setAdapter(customBaseAdapter);
         auth = FirebaseAuth.getInstance();
+
+        Adder = findViewById(R.id.Adder);
+        Adder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Home.this, "Adding the station...", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Home.this, AddStation.class));
+                finish();
+            }
+        });
     }
 
     @Override
