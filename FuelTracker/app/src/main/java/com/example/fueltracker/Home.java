@@ -39,7 +39,6 @@ public class Home extends AppCompatActivity {
         Adder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Home.this, "Adding the station...", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Home.this, AddStation.class));
                 finish();
             }
@@ -60,6 +59,7 @@ public class Home extends AppCompatActivity {
             case R.id.openmap:
                 Toast.makeText(this, "Trying to open Map", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Home.this, MapActivity.class));
+                finish();
                 return true;
 
             case R.id.logout:

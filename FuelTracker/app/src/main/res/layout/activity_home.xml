@@ -51,10 +51,10 @@
         android:id="@+id/Adder"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/ListView"
         android:layout_marginLeft="45dp"
         android:layout_marginTop="40dp"
         android:layout_toRightOf="@+id/addStation"
-        android:layout_below="@+id/ListView"
         android:text="Add"
 
         android:textSize="15sp" />
