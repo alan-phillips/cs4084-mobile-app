@@ -17,10 +17,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Home extends AppCompatActivity {
     String stationList[] = {"Circle K", "Topaz", "Applegreen", "Maxol"};
     ListView listView;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class Home extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.ListView);
         CustomBaseAdapter customBaseAdapter = new CustomBaseAdapter(getApplicationContext(), stationList);
         listView.setAdapter(customBaseAdapter);
+        auth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -48,6 +51,7 @@ public class Home extends AppCompatActivity {
 
             case R.id.logout:
                 Toast.makeText(this, "Trying to Log Out", Toast.LENGTH_SHORT).show();
+                auth.signOut();
                 startActivity(new Intent(Home.this, MainActivity.class));
                 finish();
                 return true;
@@ -56,11 +60,5 @@ public class Home extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-
-
-
-
 
 }
